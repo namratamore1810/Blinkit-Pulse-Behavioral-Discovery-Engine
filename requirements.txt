@@ -15,9 +15,9 @@ ntscraper==0.3.11
 emoji==2.11.1
 
 # Phase 4 Dependencies
-groq==0.8.0
+# (groq already in main list)
 
 # Phase 6 Dependencies (Web UI)
 streamlit==1.36.0
 plotly==5.22.0
-pandas==2.2.2
+pandas
