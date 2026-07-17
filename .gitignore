@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Environment variables
+.env
+src/config/service_account.json
+
+# Data folders
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Vector Database local storage
+chroma_db/
+
+# IDEs and OS
+.vscode/
+.idea/
+.DS_Store

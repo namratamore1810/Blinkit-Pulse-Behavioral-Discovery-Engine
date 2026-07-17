@@ -1,0 +1,23 @@
+google-play-scraper==1.2.4
+praw==7.7.1
+beautifulsoup4==4.12.3
+requests==2.31.0
+python-dotenv==1.0.1
+groq==0.8.0
+langchain-text-splitters==0.2.2
+sentence-transformers==3.0.1
+pinecone-client==4.1.1
+gspread==6.0.0
+google-auth==2.29.0
+ntscraper==0.3.11
+
+# Phase 2 Dependencies
+emoji==2.11.1
+
+# Phase 4 Dependencies
+groq==0.8.0
+
+# Phase 6 Dependencies (Web UI)
+streamlit==1.36.0
+plotly==5.22.0
+pandas==2.2.2

@@ -1,0 +1,55 @@
+# PROBLEM STATEMENT: PART 1 - AI-POWERED DISCOVERY ENGINE
+
+## 1. Problem Statement
+Quick-commerce platform Blinkit, have successfully integrated into users' weekly routines for essentials like groceries, snacks, and beverages. However, shopping behavior has become highly repetitive; customers purchase the same set of products repeatedly and rarely explore new categories available on the platform. To solve this, the Growth Team must first understand the behavioral, psychological, and UI/UX barriers preventing cross-category exploration on Blinkit. Currently, the sheer volume of unstructured qualitative user feedback (reviews, forums, social media) makes manual analysis impossible, leaving a gap in actionable insights regarding user habits and unmet needs.
+
+## 2. Objective
+Design and build an AI-Powered Discovery Engine that automatically ingests, processes, and synthesizes qualitative user feedback at scale specifically for Blinkit. This engine will act as an automated research assistant to uncover deep, data-driven insights about user shopping habits, friction points, and discovery behaviors, setting the foundation for future product interventions.
+
+## 3. What the System Does
+* **Data Aggregation:** Scrapes and collects unstructured user feedback from diverse online sources (App Store, Play Store, Reddit, Twitter/X, Community Forums, YouTube comments, and consumer review sites).
+* **Data Sanitization & Cleaning:** Pre-processes the scraped data by stripping emojis, filtering out bot/spam reviews, removing non-textual noise, and discarding irrelevant short-form text (e.g., "good app") to ensure high-quality inputs for the LLM.
+* **AI Analysis:** Routes the cleaned text through an AI-native stack (e.g., Gemini Pro, Claude, or custom GPTs) via automated workflows (e.g., Make.com, Zapier, n8n).
+* **Theme Extraction:** Analyzes the data to identify recurring themes, categorizing feedback into distinct psychological drivers, pain points, and user behaviors.
+* **Insight Generation:** Answers predefined analytical questions to map the current user journey and friction points regarding category exploration on Blinkit.
+
+## 4. Key-Requirements
+The system must be fully automated (post-setup) and leverage an AI-native stack. It must explicitly process the data to answer the following core and supplementary questions:
+* Why do users repeatedly buy from the same categories?
+* What prevents users from exploring new categories?
+* How do users discover products today?
+* What role do habits play in shopping behavior?
+* What information do users need before trying a new category?
+* What frustrations emerge repeatedly when venturing outside usual purchases?
+* Which user segments are more likely to experiment?
+* What unmet needs emerge consistently across discussions?
+* **[Added]** What specific UI/UX elements in the Blinkit app (e.g., prominent "Past Orders" buttons) unintentionally discourage browsing new categories?
+* **[Added]** What external triggers (e.g., a viral recipe, social media trends, running out of an obscure item) successfully prompt a user to search for a completely new product on Blinkit?
+
+Additionally, the system must include a methodology to validate the quality and accuracy of the AI-generated insights (e.g., hallucination checks, source-linking).
+
+## 5. Non-Goals
+* Building the final consumer-facing feature or application (this is reserved for Part 4).
+* Solving supply chain, logistics, or inventory issues.
+* Conducting manual data entry or reading thousands of reviews by hand.
+* Generating quantitative metrics (e.g., DAU/MAU calculations)—this is strictly qualitative sentiment and behavioral analysis.
+
+## 6. Who this Helps
+* **Product Managers & Growth Teams:** Provides data-backed hypotheses to design features that encourage cross-category exploration.
+* **User Researchers:** Offers a strong, evidence-based starting point for targeted primary research and interviews (Part 2).
+* **Business Strategy:** Aligns product development with the strategic goal of increasing the percentage of Monthly Active Customers buying from new categories.
+
+## 7. Sample Outputs
+* *Theme - Trust & Quality Barriers:* "Users avoid the fresh produce category because they fear receiving spoiled items, as cited in 142 recent Play Store reviews."
+* *Theme - Habitual UI Blindness:* "Shoppers navigate directly to their 'Past Orders' tab to checkout in under 60 seconds, completely ignoring the promotional banners for the newly launched 'Pet Supplies' category."
+* *Insight - High-Experimentation Segment:* "Late-night snack purchasers (10 PM - 2 AM) show a higher propensity to add newly launched beverages or impulse items to their carts if prompted at checkout."
+
+## 8. What this Solves
+It eliminates human bias and manual labor from qualitative research. Instead of guessing why users don't explore new categories, the team gets a scalable, evidence-based map of user psychology and platform friction, allowing for high-confidence problem definition.
+
+## 9. Delivery Expectations
+The workflow must clearly demonstrate transparency in its operations: how it gathers data, how the LLM prompt identifies themes, and how the final insights are synthesized and stored (e.g., in Google Sheets or Notion). The architecture must be robust enough to handle various text formats from different sources.
+
+## 10. Actual Deliverables (For Part 1)
+1.  **Workflow Link:** A public, testable link to the Review Analysis Workflow (e.g., a Make.com template link, an n8n workflow share, or an Agent link) that demonstrates the automated pipeline in action.
+2.  **Architecture 1-Slider:** A single presentation slide (to be included in the final 10-slide deck) visually outlining how the AI workflow operates from data source to final insight generation.
