@@ -13,11 +13,11 @@ st.title("⚡ Blinkit Pulse: Behavioral Discovery Engine")
 st.markdown("An enterprise-grade Product Manager's Command Center for unstructured feedback analysis.")
 
 @st.cache_resource
-def load_models():
+def load_ai_models():
     return SemanticRetriever(), InsightGenerator()
 
 try:
-    retriever, generator = load_models()
+    retriever, generator = load_ai_models()
 except Exception as e:
     st.error(f"Error initializing models: {e}. Please check your API keys.")
     st.stop()
