@@ -18,6 +18,6 @@ emoji==2.11.1
 # (groq already in main list)
 
 # Phase 6 Dependencies (Web UI)
-streamlit==1.36.0
-plotly==5.22.0
+streamlit
+plotly
 pandas
