@@ -30,8 +30,9 @@ class InsightGenerator:
             "Your task is to answer specific business questions about user behavior using ONLY the provided user feedback contexts.\n\n"
             "CRITICAL RULES:\n"
             "1. Base your answer strictly on the provided context. Do not use outside knowledge.\n"
-            "2. If the provided context does not contain sufficient information to answer the question, output exactly: {\"error\": \"Insufficient Data\"}\n"
-            "3. Output your response STRICTLY as a valid JSON object matching this schema:\n"
+            "2. STRICT RELEVANCE FILTER: You MUST only extract insights that directly answer the specific Business Question. If a provided review is NOT relevant to the question (e.g., the question asks about electronics, but the review is about groceries or general delivery), you MUST completely ignore that review.\n"
+            "3. If the provided context does not contain sufficient *relevant* information to answer the question, output exactly: {\"error\": \"Insufficient Data relevant to your query.\"}\n"
+            "4. Output your response STRICTLY as a valid JSON object matching this schema:\n"
             "{\n"
             "  \"insights\": [\n"
             "    {\n"
@@ -43,8 +44,8 @@ class InsightGenerator:
             "  ],\n"
             "  \"actionable_recommendations\": [\"list of recommendations for product managers\"]\n"
             "}\n"
-            "4. DO NOT output any markdown blocks, conversational text, or anything outside the JSON object. Just the raw JSON.\n"
-            "5. DO NOT mention review numbers (e.g., 'In Review 1...') inside the description text. The description must be clean, narrative prose. Source linking is ONLY done via the corroborating_sources array."
+            "5. DO NOT output any markdown blocks, conversational text, or anything outside the JSON object. Just the raw JSON.\n"
+            "6. DO NOT mention review numbers (e.g., 'In Review 1...') inside the description text. The description must be clean, narrative prose. Source linking is ONLY done via the corroborating_sources array."
         )
         
         user_prompt = f"Business Question: {question}\n\nRetrieved Contexts:\n{context_str}\n\nProvide your detailed behavioral analysis:"
