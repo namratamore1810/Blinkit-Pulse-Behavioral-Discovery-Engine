@@ -20,19 +20,26 @@ class SemanticRetriever:
         self.model = SentenceTransformer(MODEL_NAME)
         print("Retriever ready.")
 
-    def search(self, query: str, top_k: int = 15):
+    def search(self, query: str, top_k: int = 15, filter_tag: str = None):
         """
         Converts the query to a vector and retrieves the top_k most similar chunks from Pinecone.
+        Optionally filters by keyword_tag.
         """
         print(f"Embedding query: '{query}'")
         query_vector = self.model.encode(query).tolist()
         
         print(f"Searching Pinecone for top {top_k} results...")
-        response = self.index.query(
-            vector=query_vector,
-            top_k=top_k,
-            include_metadata=True
-        )
+        
+        query_args = {
+            "vector": query_vector,
+            "top_k": top_k,
+            "include_metadata": True
+        }
+        
+        if filter_tag and filter_tag != "All":
+            query_args["filter"] = {"keyword_tags": {"$in": [filter_tag]}}
+            
+        response = self.index.query(**query_args)
         
         results = []
         for match in response['matches']:

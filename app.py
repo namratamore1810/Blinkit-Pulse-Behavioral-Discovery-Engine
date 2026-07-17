@@ -22,12 +22,18 @@ except Exception as e:
     st.error(f"Error initializing models: {e}. Please check your API keys.")
     st.stop()
 
+# Sidebar Controls
+st.sidebar.header("⚙️ Engine Controls")
+st.sidebar.markdown("Filter the database before running AI analysis to enforce strict relevance.")
+category_filter = st.sidebar.selectbox("Category Filter", ["All", "ui_ux", "customer_support", "delivery", "pricing", "quality", "search"])
+top_k_limit = st.sidebar.slider("Context Limit (Reviews)", min_value=5, max_value=25, value=10, step=5)
+
 query = st.text_input("Enter a business question (e.g., 'Why do users abandon their carts?'):", placeholder="Type your query here...")
 
 if query:
     with st.spinner("Analyzing Blinkit Behavior..."):
         try:
-            contexts = retriever.search(query=query, top_k=15)
+            contexts = retriever.search(query=query, top_k=top_k_limit, filter_tag=category_filter)
             
             if not contexts:
                 st.warning("No relevant context found in the database.")
